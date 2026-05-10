@@ -87,9 +87,12 @@
     document.body.innerHTML = `
       <div class="app">
         <header class="topbar">
+          <button class="icon-btn menu-btn" id="menu-btn" aria-label="菜单" title="章节目录">
+            <span class="menu-icon"></span>
+          </button>
           <div class="brand" id="brand">
             <span class="brand-dot">职</span>
-            <span>职业卫生学复习</span>
+            <span class="brand-text">职业卫生学复习</span>
             <span class="brand-sub">· 往年题考点</span>
           </div>
           <div class="search-box" id="search-box">
@@ -107,6 +110,7 @@
           <aside class="sidebar" id="sidebar"></aside>
           <main class="content"><div class="content-inner" id="content"></div></main>
         </div>
+        <div class="sidebar-backdrop" id="sidebar-backdrop" aria-hidden="true"></div>
       </div>
       <div id="palette-mount"></div>
     `;
@@ -122,6 +126,14 @@
       const a = e.target.closest('a[data-route]');
       if (a) { e.preventDefault(); go('#' + a.dataset.route); }
     });
+
+    document.getElementById('menu-btn').onclick = (e) => {
+      e.stopPropagation();
+      document.body.classList.toggle('sidebar-open');
+    };
+    document.getElementById('sidebar-backdrop').onclick = () => {
+      document.body.classList.remove('sidebar-open');
+    };
 
     const sb = document.getElementById('search-box');
     sb.onclick = () => openPalette();
@@ -711,6 +723,8 @@
     document.getElementById('content').innerHTML = html;
     renderSidebar(activeChId);
     document.getElementById('content').scrollTop = 0;
+    // Close mobile drawer on every navigation
+    document.body.classList.remove('sidebar-open');
 
     // nav active state
     document.getElementById('nav-home').classList.toggle('active', segs.length === 0);
