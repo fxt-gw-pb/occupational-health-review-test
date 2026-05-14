@@ -17,7 +17,7 @@ When making site changes, the production site is `site.js` — do not assume edi
 
 ## Data pipeline
 
-The source of truth for content is `知识点整理文件/职业卫生学往年题考点整理.md` (inside the repo, but the `知识点整理文件/` directory itself is not referenced by the site and so is not served as part of the page). `build-data.js` parses its `## 第X章` chapter headings, `### N. 知识点` knowledge-point headings, and the structured fields beneath each (`**考频：N 次**`, `**对应小节：**`, `**匹配依据：**`, `**知识点原文摘取：**`, `**对应往年题：**` followed by `【往年题N｜source｜type】` blocks).
+The source of truth for content is `知识仓库/职业卫生学往年题考点整理.md` (inside the repo, but the `知识仓库/` directory itself is not referenced by the site and so is not served as part of the page). `build-data.js` parses its `## 第X章` chapter headings, `### N. 知识点` knowledge-point headings, and the structured fields beneath each (`**考频：N 次**`, `**对应小节：**`, `**匹配依据：**`, `**知识点原文摘取：**`, `**对应往年题：**` followed by `【往年题N｜source｜type】` blocks).
 
 It emits two artifacts in the repo root:
 

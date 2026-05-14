@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// Parses 知识点整理文件/职业卫生学往年题考点整理.md into structured data.json.
+// Parses 知识仓库/职业卫生学往年题考点整理.md into structured data.json.
 // Run: node build-data.js
 
 const fs = require('fs');
 const path = require('path');
 
-const MD_PATH = path.resolve(__dirname, '知识点整理文件', '职业卫生学往年题考点整理.md');
+const MD_PATH = path.resolve(__dirname, '知识仓库', '职业卫生学往年题考点整理.md');
 const OUT_PATH = path.resolve(__dirname, 'data.json');
 
 const CHAPTER_NUM_TO_ID = {
