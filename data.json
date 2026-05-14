@@ -1,8 +1,8 @@
 {
   "meta": {
     "chapters": 16,
-    "points": 56,
-    "questions": 124,
+    "points": 57,
+    "questions": 125,
     "hiFreqPoints": 20
   },
   "chapters": [
@@ -279,10 +279,29 @@
               "text": "4、体力劳动时心血管系统的血液再分配情况\nA、骨骼肌和内脏的血流量增大\nB、骨骼肌和心肌的血流量增大\nC、肝肾的血流量增大\nD&E、……"
             }
           ]
+        },
+        {
+          "id": "ch2-5",
+          "index": 5,
+          "chapterId": 2,
+          "chapterTitle": "职业生理与工效",
+          "title": "职业性肌肉骨骼疾患（WMSDs）",
+          "freq": 1,
+          "section": "第二章 职业生理与工效（手动补充）",
+          "basis": "未匹配到，手动补充。",
+          "excerpt": "【知识总结pdf没有，补充】职业性肌肉骨骼疾患（work related musculoskeletal disorders，WMSDs）：由于暴露于工作场所的相关危险因素所导致的肌肉、神经、肌腱、关节、软骨和椎间盘等的损伤疾病，包括腰背痛、腕管综合征、其他肌肉骨骼系统或结缔组织疾病，多由于重复或过度用力或弯曲、攀爬、扭曲引起。",
+          "questions": [
+            {
+              "n": 1,
+              "source": "21级本科预防二班+胡润泽+职业卫生+主观题总结.docx",
+              "type": "名词解释",
+              "text": "职业性肌肉骨骼疾患（work related musculoskeletal disorders，WMSDs）"
+            }
+          ]
         }
       ],
-      "totalFreq": 13,
-      "totalQuestions": 13,
+      "totalFreq": 14,
+      "totalQuestions": 14,
       "peak": 6,
       "hi": 3
     },
@@ -1922,6 +1941,18 @@
       "chapterTitle": "职业生理与工效",
       "pointId": "ch2-4",
       "pointTitle": "体力劳动时心血管系统血液再分配",
+      "pointFreq": 1
+    },
+    {
+      "n": 1,
+      "source": "21级本科预防二班+胡润泽+职业卫生+主观题总结.docx",
+      "type": "名词解释",
+      "text": "职业性肌肉骨骼疾患（work related musculoskeletal disorders，WMSDs）",
+      "year": "21",
+      "chapterId": 2,
+      "chapterTitle": "职业生理与工效",
+      "pointId": "ch2-5",
+      "pointTitle": "职业性肌肉骨骼疾患（WMSDs）",
       "pointFreq": 1
     },
     {
