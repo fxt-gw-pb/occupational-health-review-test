@@ -82,6 +82,26 @@
   }
   function pad2(n) { return String(n).padStart(2, '0'); }
 
+  const REPO = 'fxt-gw-pb/occupational-health-review-test';
+  function errataUrl(p) {
+    const ch = chById.get(p.chapterId);
+    const title = `[勘误] 第${pad2(ch.id)}章 · ${p.title}`;
+    const body = [
+      `**知识点：** 第 ${pad2(ch.id)} 章 ${ch.title} / ${p.title}`,
+      `**ID：** \`${p.id}\``,
+      `**链接：** ${location.origin}${location.pathname}#/p/${p.id}`,
+      '',
+      '---',
+      '',
+      '## 勘误内容',
+      '（请描述发现的问题，例如：知识点匹配错误 / 原文摘取有误 / 往年题归类不当 / 缺失补充等）',
+      '',
+      '## 建议修改',
+      '（如有具体修改建议，请贴在这里）',
+    ].join('\n');
+    return `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+  }
+
   // ── Render shell ────────────────────────────────────────────
   function renderShell() {
     document.body.innerHTML = `
@@ -188,6 +208,7 @@
       <div class="page-eyebrow">REVIEW · 2026 春</div>
       <h1 class="page-title">职业卫生学 · 往年题考点复习</h1>
       <p class="page-sub">基于《职业卫生学知识点总结》PDF 与 04 / 09 / 10 / 11 / 14 / 21 / 24 级往年题整理。同章节内按考频从高到低排序，仅纳入往年题中确实出现过的知识点。</p>
+      <p class="page-sub">所有章节结构和知识点匹配均基于《职业卫生学知识点总结by17级ybn.pdf》，部分往年题匹配到的知识点有缺失，欢迎勘误和补充。</p>
 
       <div class="stat-row">
         <div class="stat"><div class="v">${total.chapters}</div><div class="k">章节</div></div>
@@ -346,6 +367,9 @@
         <button class="icon-btn" id="mark-btn" style="width:auto;padding:0 12px;color:${isMastered ? 'var(--success)' : 'var(--ink-2)'}">
           ${isMastered ? '✓ 已掌握' : '标记已掌握'}
         </button>
+        <a class="icon-btn" id="errata-btn" href="${errataUrl(p)}" target="_blank" rel="noopener" title="提交勘误（打开 GitHub Issue）" style="width:auto;padding:0 12px;text-decoration:none;color:var(--ink-2)">
+          ✎ 勘误反馈
+        </a>
       </div>
 
       <div class="card card-pad" style="margin-top:18px">
@@ -562,6 +586,7 @@
           </div>
           <div class="kp-actions">
             <button data-act="toggle" title="${isMastered ? '取消掌握' : '标记掌握'}" class="${isMastered ? 'on' : ''}">${isMastered ? '✓' : '○'}</button>
+            <button data-act="errata" title="提交勘误（打开 GitHub Issue）">勘误</button>
             <button data-act="open">阅读 →</button>
           </div>
         </div>
@@ -604,6 +629,7 @@
           e.stopPropagation();
           if (actBtn.dataset.act === 'toggle') { toggleMastered(pid); render(); }
           else if (actBtn.dataset.act === 'open') { go('#/p/' + pid); }
+          else if (actBtn.dataset.act === 'errata') { window.open(errataUrl(pointById.get(pid)), '_blank', 'noopener'); }
           return;
         }
         // toggle expand
